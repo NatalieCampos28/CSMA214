@@ -218,6 +218,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myManager: {fileID: 0}
   speed: 0.5
-  goal: {fileID: 0}
-  enemy: {fileID: 0}
+  goal: {fileID: 5547734118826483190, guid: 26ca43713c11d5b41b153685e8d31093, type: 3}
+  enemy: {fileID: 3236860200454365473, guid: c40c048ac4aa7f6408b07b65f53961f2, type: 3}
   applyRuleFreq: 10

@@ -73,7 +73,7 @@ public class Boid : MonoBehaviour
         {
             if(boid != this.gameObject)
             {
-                neighborhood_dist = Vector3.Distance(boid.transform.position, this.transform.position);
+                neighborhood_dist = Vector3.Distance(boid.transform.position, enemy.transform.position);
 
                 //add randomness
                 if(neighborhood_dist <= myManager.neighborDist * Random.value)
@@ -83,7 +83,7 @@ public class Boid : MonoBehaviour
 
                     if(neighborhood_dist < myManager.comfortDist*Random.value)
                     {
-                        vector_avoid = vector_avoid + (this.transform.position - boid.transform.position);
+                        vector_avoid = vector_avoid + (enemy.transform.position - boid.transform.position);
                     }
                     Boid other_boid = boid.GetComponent<Boid>();
 
@@ -101,12 +101,21 @@ public class Boid : MonoBehaviour
 
             speed = neighborhood_speed/neighborhood_size;
 
-            Vector3 direction = (vector_center + vector_avoid) - transform.position; //sub to goal
+            //Vector3 direction = (vector_center + vector_avoid) - goal.transform.position;
 
-            if(direction != Vector3.zero)
+            //sub to goal
+            Vector3 direction = this.goal.position - this.transform.position;
+
+            if (direction != Vector3.zero)
             {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), myManager.rotationSpeed * Time.deltaTime);
+             
+               transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), myManager.rotationSpeed * Time.deltaTime);
+
+                //Move Towards Target
+                this.transform.position += (this.goal.position - this.transform.position).normalized
+                    * speed * Time.deltaTime;
             }
+           
         }
     }
 }
