@@ -358,6 +358,8 @@
 "Assets/5-Merger/PopManager.cs"
 "Assets/5-Merger/ProgMesh.cs"
 "Assets/6-Interpolation/Interpolate.cs"
+"Assets/Final/CellDNA.cs"
+"Assets/Final/DistributionManager.cs"
 -langversion:9.0
 
 /deterministic

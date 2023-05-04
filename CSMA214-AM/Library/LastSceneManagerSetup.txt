@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/5-Merger/Merger.unity
+- path: Assets/Final/Final.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
